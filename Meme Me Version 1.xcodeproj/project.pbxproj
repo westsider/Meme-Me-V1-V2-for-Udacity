@@ -54,9 +54,9 @@
 		A6B94BC31D7256A300827BA4 /* Meme Me Version 1 */ = {
 			isa = PBXGroup;
 			children = (
-				A6B94BC41D7256A300827BA4 /* AppDelegate.swift */,
-				A6B94BC61D7256A300827BA4 /* ViewController.swift */,
 				A6B94BC81D7256A300827BA4 /* Main.storyboard */,
+				A6B94BC61D7256A300827BA4 /* ViewController.swift */,
+				A6B94BC41D7256A300827BA4 /* AppDelegate.swift */,
 				A6B94BCB1D7256A300827BA4 /* Assets.xcassets */,
 				A6B94BCD1D7256A300827BA4 /* LaunchScreen.storyboard */,
 				A6B94BD01D7256A300827BA4 /* Info.plist */,
@@ -252,6 +252,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Meme Me Version 1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "TradeStrat.Meme-Me-Version-1";
@@ -263,6 +264,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
 				INFOPLIST_FILE = "Meme Me Version 1/Info.plist";
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = "TradeStrat.Meme-Me-Version-1";
@@ -289,6 +291,7 @@
 				A6B94BD51D7256A300827BA4 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
