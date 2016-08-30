@@ -7,17 +7,19 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A69636CE1D75E18700D781BC /* MemeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = A69636CD1D75E18700D781BC /* MemeModel.swift */; };
 		A6B94BC51D7256A300827BA4 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B94BC41D7256A300827BA4 /* AppDelegate.swift */; };
-		A6B94BC71D7256A300827BA4 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B94BC61D7256A300827BA4 /* ViewController.swift */; };
+		A6B94BC71D7256A300827BA4 /* MemeEditorViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A6B94BC61D7256A300827BA4 /* MemeEditorViewController.swift */; };
 		A6B94BCA1D7256A300827BA4 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B94BC81D7256A300827BA4 /* Main.storyboard */; };
 		A6B94BCC1D7256A300827BA4 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = A6B94BCB1D7256A300827BA4 /* Assets.xcassets */; };
 		A6B94BCF1D7256A300827BA4 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A6B94BCD1D7256A300827BA4 /* LaunchScreen.storyboard */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A69636CD1D75E18700D781BC /* MemeModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MemeModel.swift; sourceTree = "<group>"; };
 		A6B94BC11D7256A300827BA4 /* Meme Me Version 1.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Meme Me Version 1.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		A6B94BC41D7256A300827BA4 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
-		A6B94BC61D7256A300827BA4 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		A6B94BC61D7256A300827BA4 /* MemeEditorViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MemeEditorViewController.swift; sourceTree = "<group>"; };
 		A6B94BC91D7256A300827BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		A6B94BCB1D7256A300827BA4 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		A6B94BCE1D7256A300827BA4 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -35,6 +37,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A69636CF1D75E1A600D781BC /* Supporting FIles */ = {
+			isa = PBXGroup;
+			children = (
+				A6B94BCD1D7256A300827BA4 /* LaunchScreen.storyboard */,
+				A6B94BC41D7256A300827BA4 /* AppDelegate.swift */,
+				A6B94BD01D7256A300827BA4 /* Info.plist */,
+			);
+			name = "Supporting FIles";
+			sourceTree = "<group>";
+		};
 		A6B94BB81D7256A300827BA4 = {
 			isa = PBXGroup;
 			children = (
@@ -55,11 +67,10 @@
 			isa = PBXGroup;
 			children = (
 				A6B94BC81D7256A300827BA4 /* Main.storyboard */,
-				A6B94BC61D7256A300827BA4 /* ViewController.swift */,
-				A6B94BC41D7256A300827BA4 /* AppDelegate.swift */,
+				A6B94BC61D7256A300827BA4 /* MemeEditorViewController.swift */,
+				A69636CD1D75E18700D781BC /* MemeModel.swift */,
 				A6B94BCB1D7256A300827BA4 /* Assets.xcassets */,
-				A6B94BCD1D7256A300827BA4 /* LaunchScreen.storyboard */,
-				A6B94BD01D7256A300827BA4 /* Info.plist */,
+				A69636CF1D75E1A600D781BC /* Supporting FIles */,
 			);
 			path = "Meme Me Version 1";
 			sourceTree = "<group>";
@@ -136,7 +147,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				A6B94BC71D7256A300827BA4 /* ViewController.swift in Sources */,
+				A6B94BC71D7256A300827BA4 /* MemeEditorViewController.swift in Sources */,
+				A69636CE1D75E18700D781BC /* MemeModel.swift in Sources */,
 				A6B94BC51D7256A300827BA4 /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
