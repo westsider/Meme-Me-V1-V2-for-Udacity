@@ -71,11 +71,6 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         }
     }
     
-    // MARK: lifecycle functions
-    override func viewDidLoad() {
-        super.viewDidLoad()
-    }
-    
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         subscribeToKeyboardNotifications()
@@ -114,6 +109,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     func unSubscribeToKeyboardNotofications() {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillShowNotification, object: nil)
+        NSNotificationCenter.defaultCenter().removeObserver(self, name: UIKeyboardWillHideNotification, object: nil)
     }
     
     // MARK: shift the view's frame up only on bottom text field
