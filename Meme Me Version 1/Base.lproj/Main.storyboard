@@ -193,10 +193,9 @@
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
                                         <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="5Ha-aL-A0J">
-                                            <rect key="frame" x="0.0" y="-15" width="104" height="104"/>
+                                            <rect key="frame" x="8" y="0.0" width="89" height="89"/>
                                             <constraints>
-                                                <constraint firstAttribute="width" constant="104" id="Vrr-UE-Ifd"/>
-                                                <constraint firstAttribute="height" constant="104" id="gDN-Ei-Aht"/>
+                                                <constraint firstAttribute="width" constant="89" id="q3x-aF-iJJ"/>
                                             </constraints>
                                         </imageView>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="f0u-aD-CGT">
@@ -207,11 +206,12 @@
                                         </label>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="5Ha-aL-A0J" firstAttribute="leading" secondItem="ShA-Si-3LH" secondAttribute="leading" id="8D7-eH-4PI"/>
-                                        <constraint firstItem="f0u-aD-CGT" firstAttribute="leading" secondItem="5Ha-aL-A0J" secondAttribute="trailing" constant="8" symbolic="YES" id="Dkq-EF-c8S"/>
+                                        <constraint firstItem="5Ha-aL-A0J" firstAttribute="top" secondItem="f0u-aD-CGT" secondAttribute="top" id="0VP-6A-1vU"/>
+                                        <constraint firstItem="5Ha-aL-A0J" firstAttribute="bottom" secondItem="f0u-aD-CGT" secondAttribute="bottom" id="6TY-dZ-iPZ"/>
+                                        <constraint firstAttribute="bottom" secondItem="5Ha-aL-A0J" secondAttribute="bottom" id="6aA-au-b7q"/>
+                                        <constraint firstItem="5Ha-aL-A0J" firstAttribute="leading" secondItem="ShA-Si-3LH" secondAttribute="leadingMargin" id="FYc-gI-u7q"/>
                                         <constraint firstItem="f0u-aD-CGT" firstAttribute="top" secondItem="ShA-Si-3LH" secondAttribute="top" id="UCb-5g-LSc"/>
-                                        <constraint firstAttribute="bottom" secondItem="5Ha-aL-A0J" secondAttribute="bottom" id="UJ1-hT-GaN"/>
-                                        <constraint firstItem="5Ha-aL-A0J" firstAttribute="bottom" secondItem="f0u-aD-CGT" secondAttribute="bottom" id="tcy-Pd-27t"/>
+                                        <constraint firstItem="f0u-aD-CGT" firstAttribute="leading" secondItem="5Ha-aL-A0J" secondAttribute="trailing" constant="15" id="dn9-Hw-dHx"/>
                                         <constraint firstAttribute="trailing" secondItem="f0u-aD-CGT" secondAttribute="trailing" id="xT3-Ca-5SS"/>
                                     </constraints>
                                 </tableViewCellContentView>
@@ -351,6 +351,6 @@
         <image name="table" width="29" height="29"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="xZ9-wb-PC1"/>
+        <segue reference="sNk-fA-59l"/>
     </inferredMetricsTieBreakers>
 </document>
