@@ -1,9 +1,19 @@
 //
 //  ViewController.swift
-//  Meme Me Version 1
+//  Meme Me Version 2 Branch from Version 1
 //
 //  Created by Warren Hansen on 8/27/16.
 //  Copyright © 2016 Warren Hansen. All rights reserved.
+
+//  missing from project
+//  subclass tableview images
+//  need aspect fit on collection
+
+//  The Meme Editor uses the Cancel button to return to the Sent Memes View.
+//  The detail view slides in from right to left, and a back arrow in the top left corner leads back to the table/collection.
+
+//  add swipe to delete
+//  add nicer buttons
 
 import UIKit
 
@@ -14,6 +24,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     @IBOutlet weak var cameraButton: UIBarButtonItem!
     @IBOutlet weak var topTextField: UITextField!
     @IBOutlet weak var bottomtextFiield: UITextField!
+    
+    @IBOutlet weak var navBar: UIToolbar!
+    @IBOutlet weak var toolBat: UIToolbar!
+    
+    var memedImage: UIImage!
     
     // MARK: pick image or camera
     func pickImage(source: UIImagePickerControllerSourceType){
@@ -32,20 +47,24 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK: share generated image
     @IBAction func shareItems(sender: AnyObject) {
-        let ac = UIActivityViewController(activityItems: [generateMemedImage()], applicationActivities: nil)
-        ac.completionWithItemsHandler = { activity, success, items, error in
+        self.safelySaveMeme()
+        let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        activityViewController.completionWithItemsHandler = { activity, success, items, error in
             if success {
-                self.save()
+            NSLog(")User saved + shared Meme")
+            } else {
+                NSLog("There was an error saving / sharing meme: \(error)")
             }
         }
-        presentViewController(ac, animated: true, completion: nil)
+        self.presentViewController(activityViewController, animated: true, completion: nil)
     }
-    
+
     // MARK: cancel image selection
     @IBAction func cancelMainScreen(sender: AnyObject) {
         imagePickerView.image = nil
         topTextField.text = "TOP"
         bottomtextFiield.text = "BOTTOM"
+        self.dismissViewControllerAnimated(true, completion: {})
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -142,35 +161,36 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     }
     
     // MARK: save + generate meme
-    func save() {
-        if imagePickerView.image != nil && topTextField.text != nil && bottomtextFiield.text != nil  {
-            _ = Meme(topTextField: topTextField.text!, bottomtextFiield: bottomtextFiield.text!, originalImage: imagePickerView.image!, memedImage: generateMemedImage())   }
+    func safelySaveMeme() {
+        // safely unwrap optionals
+        if imagePickerView.image != nil && topTextField.text != nil && bottomtextFiield.text != nil
+        {
+            let top = self.topTextField.text!
+            let bottom = self.bottomtextFiield.text!
+            
+            toolBarVisible(false)    // Hide toolbar and navbar
+            
+            UIGraphicsBeginImageContext(self.view.frame.size)
+            view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+            memedImage = UIGraphicsGetImageFromCurrentImageContext()
+            UIGraphicsEndImageContext()
+
+            let image = self.imagePickerView.image!
+            let meme = Meme(topTextField: top, bottomtextFiield: bottom, originalImage: image, memedImage: memedImage)
+            (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
+            
+           toolBarVisible(true)    // show toolbar and navbar
+        }
     }
     
-    func generateMemedImage() -> UIImage
-    {
-        toolBarVisible(false)    // Hide toolbar and navbar
-        
-        // Render view to an image
-        UIGraphicsBeginImageContext(self.view.frame.size)
-        view.drawViewHierarchyInRect(self.view.frame,
-                                     afterScreenUpdates: true)
-        let memedImage : UIImage =
-            UIGraphicsGetImageFromCurrentImageContext()
-        UIGraphicsEndImageContext()
-        
-        toolBarVisible(true)
-        
-        return memedImage
-    }
-    
+    // MARK: toolbar functions
     func toolBarVisible(visible: Bool){
         if !visible {
-            navigationController?.navigationBarHidden = true
-            navigationController?.toolbarHidden = true
+            self.navBar.hidden = true
+            self.toolBat.hidden = true // typo on var for toolbar
         } else {
-            navigationController?.navigationBarHidden = false
-            navigationController?.toolbarHidden = false
+            self.navBar.hidden = false
+            self.toolBat.hidden = false
         }
     }
     
