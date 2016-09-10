@@ -8,7 +8,7 @@
 //  missing from project
 //  subclass tableview images
 //  need aspect fit on collection
-
+//  cant upload to git
 //  The Meme Editor uses the Cancel button to return to the Sent Memes View.
 //  The detail view slides in from right to left, and a back arrow in the top left corner leads back to the table/collection.
 
