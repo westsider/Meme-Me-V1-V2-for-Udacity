@@ -15,7 +15,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var memes = [Meme]()
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
-        // loading severAL memes to QUICKLY make sure UI checks out OK
+        // loading memes to fast make sure UI checks out
         self.loadMemes()
         return true
     }
@@ -44,15 +44,12 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     
     func loadMemes() {
         let memes = [
-            Meme(topTextField: "I DONT ALWAYS SAY SOMETHING STUPID,", bottomtextFiield: "BUT WHEN I DO, I KEEP TALKING TO MAKE IT WORSE", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "1")!),
-            Meme(topTextField: "I DONT NORMALLY SURF THE INTERNET", bottomtextFiield: "BUT WHEN I DO, I JUST BROWSE", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "2")!),
-            Meme(topTextField: "THINK POSATIVE", bottomtextFiield: "FOREXAMPLE I FELL OFF A LADDER", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "3")!),
-            Meme(topTextField: "95% OF ALL HARLEYS ARE STILL ON THE ROAD", bottomtextFiield: "THE OTHER 5% BROKE DOWN IN THE DRIVEWAY", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "4")!),
-            Meme(topTextField: "THIS ISNT EVEN", bottomtextFiield: "REMOTELY FUNNY", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "5")!),
-            Meme(topTextField: "BRACE YOURSELF", bottomtextFiield: "WINTER IS COMMING", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "6")!),
-            Meme(topTextField: "HOLD UP", bottomtextFiield: "I GOTA INSTAGRAM THIS", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "7")!),
-            Meme(topTextField: "OH YEAH, LOVING THIS", bottomtextFiield: "NEVER BEEN HAPPIER", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "8")!),
-            Meme(topTextField: "MAYBE I ATE ALL THE MARSHMELLOWS", bottomtextFiield: "AND MAYBE I DIDN'T", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "9")!)
+            Meme(topTextField: "NEED AN ARC?", bottomtextFiield: "I NOAH GUY", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "1")!),
+            Meme(topTextField: "WHEN YOURE AT WORK", bottomtextFiield: "TRYNG TO STAY POSATIVE", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "2")!),
+            Meme(topTextField: "YOURE A FUNNY GUY", bottomtextFiield: "I LIKE THAT", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "3")!),
+            Meme(topTextField: "WHAT IF 666", bottomtextFiield: "IS THE SQUARE ROOT", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "4")!),
+            Meme(topTextField: "BE THERE", bottomtextFiield: "OR BE SQUARE", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "5")!),
+            Meme(topTextField: "UDACITY", bottomtextFiield: " ", originalImage: UIImage(named: "placeholder")!, memedImage: UIImage(named: "6")!)
         ]
         
         for meme in memes {

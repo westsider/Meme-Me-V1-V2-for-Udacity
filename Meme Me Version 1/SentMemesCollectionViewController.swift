@@ -4,28 +4,17 @@
 //
 //  Created by Warren Hansen on 9/7/16.
 //  Copyright © 2016 Warren Hansen. All rights reserved.
-//
 
 import UIKit
 
-class SentMemesCollectionViewController: UICollectionViewController {
+class SentMemesCollectionViewController: UICollectionViewController, UIViewControllerTransitioningDelegate {
     
+    // MARK: UIImage vars
     var memes = [Meme]()
     let appDelegate = (UIApplication.sharedApplication().delegate as! AppDelegate)
-    
     @IBOutlet weak var flowLayout: UICollectionViewFlowLayout!
-    
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        let spaceM = CGFloat(3.0)
-        let widthM = Double(self.view.frame.size.width)
-        let dimensionM = CGFloat((widthM - (2 * Double(spaceM))) / 3.0)
-        flowLayout.minimumLineSpacing = spaceM
-        flowLayout.minimumInteritemSpacing = spaceM
-        flowLayout.itemSize = CGSizeMake(dimensionM, dimensionM)
-        flowLayout.sectionInset = UIEdgeInsets(top: 20, left: 0, bottom: 20, right: 0)
-    }
-    
+  
+    // MARK: Lifecycle Functions
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
         self.memes = appDelegate.memes
@@ -34,7 +23,12 @@ class SentMemesCollectionViewController: UICollectionViewController {
         self.collectionView?.backgroundColor = UIColor.whiteColor()
     }
     
-    // MARK: Set up Collection
+    override func viewDidLoad() {
+        super.viewDidLoad()
+         adjustFlowLayout(view.frame.size)
+    }
+
+    // MARK: Set up Collection View
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
     }
@@ -44,20 +38,31 @@ class SentMemesCollectionViewController: UICollectionViewController {
     }
     
     override func collectionView(collectionView: UICollectionView, cellForItemAtIndexPath indexPath: NSIndexPath) -> UICollectionViewCell {
-        
         let meme = self.memes[indexPath.row]
-        let cell = self.collectionView!.dequeueReusableCellWithReuseIdentifier("CustomMemeCell", forIndexPath: indexPath)
-        cell.backgroundView = UIImageView(image: meme.memedImage)
-        
+        let cell = collectionView.dequeueReusableCellWithReuseIdentifier("CollectionViewCell", forIndexPath: indexPath) as! CollectionViewCell
+        cell.memeImageView.image = meme.memedImage
+        cell.memeImageView.contentMode = UIViewContentMode.ScaleAspectFill
         return cell
     }
     
+     // MARK: Push details VC
     override func collectionView(collectionView: UICollectionView, didSelectItemAtIndexPath indexPath: NSIndexPath) {
-        let detailViewController = self.storyboard?
-            .instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
+        let detailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         detailViewController.meme = self.memes[indexPath.row]
-        detailViewController.modalTransitionStyle = .CrossDissolve
-        presentViewController(detailViewController, animated: true, completion: nil)
+        self.navigationController!.pushViewController(detailViewController, animated: true)
+    }
+
+    // MARK: Rezize the grid - I am borrowing this concept from Anna Rogers on github
+    func adjustFlowLayout(size: CGSize) {
+        let space: CGFloat = 2.0
+        let dimension:CGFloat = size.width >= size.height ? (size.width - (5 * space)) / 6.0 :  (size.width - (2 * space)) / 3.0
+        flowLayout.minimumLineSpacing = 2.0
+        flowLayout.minimumInteritemSpacing = 2.0
+        flowLayout.itemSize = CGSizeMake(dimension, dimension)
+    }
+    
+    override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
+        adjustFlowLayout(size)
     }
     
     override func prefersStatusBarHidden() -> Bool {

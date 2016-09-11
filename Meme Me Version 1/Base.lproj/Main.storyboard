@@ -227,7 +227,7 @@
                         </connections>
                     </tableView>
                     <navigationItem key="navigationItem" id="LFT-EA-Yr3">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="jDm-tu-0Y5">
+                        <barButtonItem key="rightBarButtonItem" image="plus" id="jDm-tu-0Y5">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="sNk-fA-59l"/>
                             </connections>
@@ -252,28 +252,39 @@
                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                         </collectionViewFlowLayout>
                         <cells>
-                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CustomMemeCell" id="dEU-wH-Yf9">
+                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="CollectionViewCell" id="dEU-wH-Yf9" customClass="CollectionViewCell" customModule="Meme_Me_Version_1" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="200" height="200"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
                                     <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="lfm-tK-ZZu">
+                                        <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="placeholder" translatesAutoresizingMaskIntoConstraints="NO" id="lfm-tK-ZZu">
                                             <rect key="frame" x="0.0" y="0.0" width="200" height="200"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="7gW-43-7ua"/>
+                                                <constraint firstAttribute="height" constant="200" id="FJN-Uh-AzB"/>
+                                            </constraints>
                                         </imageView>
                                     </subviews>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                 </view>
+                                <constraints>
+                                    <constraint firstItem="lfm-tK-ZZu" firstAttribute="leading" secondItem="dEU-wH-Yf9" secondAttribute="leadingMargin" constant="-8" id="GfH-y0-1di"/>
+                                    <constraint firstItem="lfm-tK-ZZu" firstAttribute="top" secondItem="dEU-wH-Yf9" secondAttribute="topMargin" constant="-8" id="PjO-sc-Pi8"/>
+                                </constraints>
+                                <connections>
+                                    <outlet property="memeImageView" destination="lfm-tK-ZZu" id="gf4-AS-19y"/>
+                                </connections>
                             </collectionViewCell>
                         </cells>
                         <connections>
-                            <outlet property="dataSource" destination="Fvk-Xl-PnH" id="7Wg-jR-xyj"/>
+                            <outlet property="dataSource" destination="Fvk-Xl-PnH" id="Pmp-Z0-TXc"/>
                             <outlet property="delegate" destination="Fvk-Xl-PnH" id="LkU-P0-SGB"/>
                         </connections>
                     </collectionView>
                     <navigationItem key="navigationItem" id="n5N-FH-kSs">
-                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="vqF-H3-E6e">
+                        <barButtonItem key="rightBarButtonItem" image="plus" id="vqF-H3-E6e">
                             <connections>
                                 <segue destination="BYZ-38-t0r" kind="presentation" id="xZ9-wb-PC1"/>
                             </connections>
@@ -306,14 +317,9 @@
                                 </constraints>
                                 <items>
                                     <navigationItem id="gnf-y5-zE3">
-                                        <barButtonItem key="leftBarButtonItem" systemItem="stop" id="b98-2k-DS5">
+                                        <barButtonItem key="leftBarButtonItem" title="Sent Memes" id="b98-2k-DS5">
                                             <connections>
                                                 <action selector="cancelAction:" destination="E5Y-hi-sBL" id="5g9-VY-9OF"/>
-                                            </connections>
-                                        </barButtonItem>
-                                        <barButtonItem key="rightBarButtonItem" systemItem="action" id="HA3-iz-t0G">
-                                            <connections>
-                                                <action selector="shareAction:" destination="E5Y-hi-sBL" id="scL-mw-YGb"/>
                                             </connections>
                                         </barButtonItem>
                                     </navigationItem>
@@ -337,7 +343,6 @@
                     <connections>
                         <outlet property="cancelButton" destination="b98-2k-DS5" id="v7g-m2-04T"/>
                         <outlet property="imageView" destination="QGH-jI-rpE" id="g8I-vD-sjQ"/>
-                        <outlet property="shareButton" destination="HA3-iz-t0G" id="ff3-1P-OqX"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="w8Y-lJ-WsR" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -346,11 +351,12 @@
         </scene>
     </scenes>
     <resources>
-        <image name="collection" width="29" height="29"/>
+        <image name="collection" width="30" height="30"/>
         <image name="placeholder" width="300" height="300"/>
-        <image name="table" width="29" height="29"/>
+        <image name="plus" width="25" height="25"/>
+        <image name="table" width="30" height="30"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="sNk-fA-59l"/>
+        <segue reference="xZ9-wb-PC1"/>
     </inferredMetricsTieBreakers>
 </document>

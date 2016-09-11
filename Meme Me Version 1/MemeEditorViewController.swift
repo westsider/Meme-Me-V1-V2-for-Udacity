@@ -5,14 +5,6 @@
 //  Created by Warren Hansen on 8/27/16.
 //  Copyright © 2016 Warren Hansen. All rights reserved.
 
-//  MARK: TO DO
-//  fix table view aspect ration and consistent imageview size
-//  The Meme Editor uses the Cancel button to return to the Sent Memes View.
-//  The detail view slides in from right to left, and a back arrow in the top left corner leads back to the table/collection.
-
-//  add swipe to delete
-//  add nicer buttons
-
 import UIKit
 
 class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegate, UINavigationControllerDelegate, UITextFieldDelegate {
