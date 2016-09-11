@@ -52,7 +52,7 @@ class SentMemesCollectionViewController: UICollectionViewController, UIViewContr
         self.navigationController!.pushViewController(detailViewController, animated: true)
     }
 
-    // MARK: Rezize the grid - I am borrowing this concept from Anna Rogers on github
+    // MARK: Rezize the grid - I adapted this concept from Anna Rogers on github
     func adjustFlowLayout(size: CGSize) {
         let space: CGFloat = 2.0
         let dimension:CGFloat = size.width >= size.height ? (size.width - (5 * space)) / 6.0 :  (size.width - (2 * space)) / 3.0
