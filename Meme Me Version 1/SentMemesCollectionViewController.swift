@@ -28,7 +28,8 @@ class SentMemesCollectionViewController: UICollectionViewController {
         // adjustFlowLayout(view.frame.size)
         
         let space: CGFloat = 2.0
-
+        
+        // MARK: In progress - trying another way to evenly space images
         // great for verticle
        // let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
         // great for horizontal
