@@ -23,15 +23,15 @@ class SentMemesCollectionViewController: UICollectionViewController {
         self.collectionView?.backgroundColor = UIColor.whiteColor()
     }
     
+    // MARK: In progress - trying another way to evenly space images
     override func viewDidLoad() {
         super.viewDidLoad()
         // adjustFlowLayout(view.frame.size)
         
         let space: CGFloat = 2.0
-        // test push to remote 4
-        // MARK: In progress - trying another way to evenly space images
+
         // great for verticle
-       // let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
+        // let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
         // great for horizontal
         let dimension = (self.view.frame.size.width - (5 * space)) / 5.0
         

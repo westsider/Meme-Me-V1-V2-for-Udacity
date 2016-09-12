@@ -37,18 +37,16 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK: share generated image
     @IBAction func shareItems(sender: AnyObject) {
-        self.safelySaveMeme()   // instructor asked me to save the meme only if the share is successfull
-                                // this causes a crash here because the object doesnt exist yet
-        let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
+        
+        let memeToShare = generateMemedImage()
+        
+        let activityViewController = UIActivityViewController(activityItems: [memeToShare], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = { activity, success, items, error in
             if success {
-                self.safelySaveMeme()
-                NSLog(")User saved + shared Meme")
-            } else {
-                NSLog("There was an error saving / sharing meme: \(error)")
+                self.safelySaveMeme(memeToShare)
             }
         }
-        self.presentViewController(activityViewController, animated: true, completion: nil)
+        presentViewController(activityViewController, animated: true, completion: nil)
     }
 
     // MARK: cancel image selection
@@ -152,26 +150,30 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         self.view.endEditing(true)
     }
     
-    // MARK: save + generate meme
-    func safelySaveMeme() {
+    // MARK: generate meme + save
+    func generateMemedImage() -> UIImage {
+        
+        toolBarVisible(false)
+        
+        UIGraphicsBeginImageContext(self.view.frame.size)
+        view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
+        memedImage = UIGraphicsGetImageFromCurrentImageContext()
+        UIGraphicsEndImageContext()
+        
+        toolBarVisible(true)
+        
+        return memedImage
+    }
+    func safelySaveMeme(memedImage: UIImage) {
         // safely unwrap optionals
         if imagePickerView.image != nil && topTextField.text != nil && bottomtextFiield.text != nil
         {
             let top = self.topTextField.text!
             let bottom = self.bottomtextFiield.text!
-            
-            toolBarVisible(false)    // Hide toolbar and navbar
-            
-            UIGraphicsBeginImageContext(self.view.frame.size)
-            view.drawViewHierarchyInRect(self.view.frame, afterScreenUpdates: true)
-            memedImage = UIGraphicsGetImageFromCurrentImageContext()
-            UIGraphicsEndImageContext()
-
             let image = self.imagePickerView.image!
+            
             let meme = Meme(topTextField: top, bottomtextFiield: bottom, originalImage: image, memedImage: memedImage)
             (UIApplication.sharedApplication().delegate as! AppDelegate).memes.append(meme)
-            
-           toolBarVisible(true)    // show toolbar and navbar
         }
     }
     
