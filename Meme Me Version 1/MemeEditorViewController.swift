@@ -38,6 +38,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // MARK: share generated image
     @IBAction func shareItems(sender: AnyObject) {
         self.safelySaveMeme()   // instructor asked me to save the meme only if the share is successfull
+                                // this causes a crash here because the object doesnt exist yet
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = { activity, success, items, error in
             if success {
