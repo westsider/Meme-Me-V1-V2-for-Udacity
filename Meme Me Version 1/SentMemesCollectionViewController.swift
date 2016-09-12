@@ -7,7 +7,7 @@
 
 import UIKit
 
-class SentMemesCollectionViewController: UICollectionViewController, UIViewControllerTransitioningDelegate {
+class SentMemesCollectionViewController: UICollectionViewController {
     
     // MARK: UIImage vars
     var memes = [Meme]()
@@ -25,9 +25,27 @@ class SentMemesCollectionViewController: UICollectionViewController, UIViewContr
     
     override func viewDidLoad() {
         super.viewDidLoad()
-         adjustFlowLayout(view.frame.size)
-    }
+        // adjustFlowLayout(view.frame.size)
+        
+        let space: CGFloat = 2.0
 
+        // great for verticle
+       // let dimension = (self.view.frame.size.width - (2 * space)) / 3.0
+        // great for horizontal
+        let dimension = (self.view.frame.size.width - (5 * space)) / 5.0
+        
+        flowLayout.minimumLineSpacing = 2.0
+        flowLayout.minimumInteritemSpacing = 2.0
+        flowLayout.itemSize = CGSizeMake(dimension, dimension) //causes all cells to have the same size.
+        
+        // solution access height of main view
+       // inset = UIEdgeInsetsMake(<#T##top: CGFloat##CGFloat#>, <#T##left: CGFloat##CGFloat#>, <#T##bottom: CGFloat##CGFloat#>, <#T##right: CGFloat##CGFloat#>)
+        
+    }
+    
+    override func viewDidAppear(animated: Bool) {
+        collectionView!.reloadData()
+    }
     // MARK: Set up Collection View
     override func numberOfSectionsInCollectionView(collectionView: UICollectionView) -> Int {
         return 1
@@ -51,7 +69,7 @@ class SentMemesCollectionViewController: UICollectionViewController, UIViewContr
         detailViewController.meme = self.memes[indexPath.row]
         self.navigationController!.pushViewController(detailViewController, animated: true)
     }
-
+/*
     // MARK: Rezize the grid - I adapted this concept from Anna Rogers on github
     func adjustFlowLayout(size: CGSize) {
         let space: CGFloat = 2.0
@@ -64,7 +82,7 @@ class SentMemesCollectionViewController: UICollectionViewController, UIViewContr
     override func viewWillTransitionToSize(size: CGSize, withTransitionCoordinator coordinator: UIViewControllerTransitionCoordinator) {
         adjustFlowLayout(size)
     }
-    
+*/
     override func prefersStatusBarHidden() -> Bool {
         return true     // status bar should be hidden
     }

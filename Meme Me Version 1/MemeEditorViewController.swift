@@ -37,11 +37,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK: share generated image
     @IBAction func shareItems(sender: AnyObject) {
-        self.safelySaveMeme()
+        self.safelySaveMeme()   // instructor asked me to save the meme only if the share is successfull
         let activityViewController = UIActivityViewController(activityItems: [memedImage], applicationActivities: nil)
         activityViewController.completionWithItemsHandler = { activity, success, items, error in
             if success {
-            NSLog(")User saved + shared Meme")
+                self.safelySaveMeme()
+                NSLog(")User saved + shared Meme")
             } else {
                 NSLog("There was an error saving / sharing meme: \(error)")
             }

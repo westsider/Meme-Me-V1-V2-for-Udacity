@@ -4,7 +4,7 @@
 //
 //  Created by Warren Hansen on 9/11/16.
 //  Copyright © 2016 Warren Hansen. All rights reserved.
-//  now have a github copy
+//  now have a github copy for next class
 
 import UIKit
 
