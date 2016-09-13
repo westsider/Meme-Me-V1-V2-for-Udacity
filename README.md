@@ -1,4 +1,6 @@
-![sentmemes](https://cloud.githubusercontent.com/assets/19356639/18486999/53cea98e-79a8-11e6-954c-d432409b5793.PNG)
+![meme_1](https://cloud.githubusercontent.com/assets/19356639/18487448/28539164-79aa-11e6-8221-e9dee8b7d7ac.PNG)
+![meme_2](https://cloud.githubusercontent.com/assets/19356639/18487450/2bbe7cec-79aa-11e6-9cc6-c19eaaaf5687.PNG)
+
 # Meme Me V1 and V2 for Udacity
 Meme V2 - while completing IOS Dev program at Udacity
 # Project Overview
