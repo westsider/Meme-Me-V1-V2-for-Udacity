@@ -16,7 +16,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(application: UIApplication, didFinishLaunchingWithOptions launchOptions: [NSObject: AnyObject]?) -> Bool {
         // loading memes to fast make sure UI checks out
-        self.loadMemes()
+        loadMemes() // removed self
         return true
     }
 

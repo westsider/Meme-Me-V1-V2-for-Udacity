@@ -1,5 +1,5 @@
 //
-//  TableViewController.swift
+//  SentMemesTableViewController
 //  Meme Me Version 2
 //
 //  Created by Warren Hansen on 9/7/16.
@@ -14,9 +14,9 @@ class SentMemesTableViewController: UITableViewController, UIViewControllerTrans
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.memes = appDelegate.memes
-        self.tableView.reloadData()
-        self.navigationItem.title = "Sent Memes"
+        memes = appDelegate.memes   // removed self
+        tableView.reloadData()      // removed self
+        navigationItem.title = "Sent Memes" // removed self
     }
     
     // MARK: Set up tableview
@@ -25,7 +25,7 @@ class SentMemesTableViewController: UITableViewController, UIViewControllerTrans
     }
     
     override func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return self.memes.count
+        return memes.count  // removed self
     }
     
     override func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
@@ -41,8 +41,9 @@ class SentMemesTableViewController: UITableViewController, UIViewControllerTrans
     // MARK: Added functionality - swipe left removes item
     override func tableView(tableView: UITableView, commitEditingStyle editingStyle: UITableViewCellEditingStyle, forRowAtIndexPath indexPath: NSIndexPath) {
         if editingStyle == UITableViewCellEditingStyle.Delete {
+            appDelegate.memes.removeAtIndex(indexPath.row)  // added as per instructor
             memes.removeAtIndex(indexPath.row)
-            self.tableView.reloadData()
+            tableView.reloadData()  // removed self
         }
     }
     
@@ -50,7 +51,7 @@ class SentMemesTableViewController: UITableViewController, UIViewControllerTrans
     override func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
         let detailViewController = self.storyboard?.instantiateViewControllerWithIdentifier("DetailViewController") as! DetailViewController
         detailViewController.meme = self.memes[indexPath.row]
-        self.navigationController!.pushViewController(detailViewController, animated: true)
+        navigationController!.pushViewController(detailViewController, animated: true)  // removed self
     }
 
     override func prefersStatusBarHidden() -> Bool {

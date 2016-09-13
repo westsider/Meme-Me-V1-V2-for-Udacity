@@ -14,11 +14,12 @@ class DetailViewController: UIViewController {
     @IBOutlet weak var cancelButton: UIBarButtonItem!
     
     override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)  // added per instructor
         imageView.image = meme.memedImage
     }
     
     @IBAction func cancelAction(sender: UIBarButtonItem) {
-        self.dismissViewControllerAnimated(true, completion: nil)
+        dismissViewControllerAnimated(true, completion: nil)    // removed self
     }
     
     override func prefersStatusBarHidden() -> Bool {

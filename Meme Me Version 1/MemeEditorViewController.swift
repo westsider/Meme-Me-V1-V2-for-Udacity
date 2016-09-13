@@ -1,9 +1,10 @@
 //
-//  ViewController.swift
+//  MemeEditorViewController
 //  Meme Me Version 2 Branch from Version 1
 //
 //  Created by Warren Hansen on 8/27/16.
 //  Copyright © 2016 Warren Hansen. All rights reserved.
+//  Change aspect fit in collections to show whole image
 
 import UIKit
 
@@ -54,7 +55,7 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
         imagePickerView.image = nil
         topTextField.text = "TOP"
         bottomtextFiield.text = "BOTTOM"
-        self.dismissViewControllerAnimated(true, completion: {})
+        dismissViewControllerAnimated(true, completion: {}) // removed self
     }
     
     func imagePickerControllerDidCancel(picker: UIImagePickerController) {
@@ -142,12 +143,12 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     
     // MARK: hide keyboard with return or on click away from text
     func textFieldShouldReturn(textField: UITextField) -> Bool {
-        self.view.endEditing(true)
+        view.endEditing(true)   // removed self
         return false
     }
     
     override func touchesBegan(touches: Set<UITouch>, withEvent event: UIEvent?) {
-        self.view.endEditing(true)
+        view.endEditing(true)   // removed self
     }
     
     // MARK: generate meme + save
@@ -180,11 +181,11 @@ class MemeEditorViewController: UIViewController, UIImagePickerControllerDelegat
     // MARK: toolbar functions
     func toolBarVisible(visible: Bool){
         if !visible {
-            self.navBar.hidden = true
-            self.toolBat.hidden = true // typo on var for toolbar
+            navBar.hidden = true    // removed self
+            toolBat.hidden = true // typo on var for toolbar // removed self
         } else {
-            self.navBar.hidden = false
-            self.toolBat.hidden = false
+            navBar.hidden = false   // removed self
+            toolBat.hidden = false  // removed self
         }
     }
     

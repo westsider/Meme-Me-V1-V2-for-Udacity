@@ -1,5 +1,5 @@
 //
-//  CollectionViewController.swift
+//  SentMemesCollectionViewController
 //  Meme Me Version 2
 //
 //  Created by Warren Hansen on 9/7/16.
@@ -17,10 +17,10 @@ class SentMemesCollectionViewController: UICollectionViewController {
     // MARK: Lifecycle Functions
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        self.memes = appDelegate.memes
-        self.collectionView?.reloadData()
-        self.navigationItem.title = "Sent Memes"
-        self.collectionView?.backgroundColor = UIColor.whiteColor()
+        memes = appDelegate.memes       // removed self
+        collectionView?.reloadData()    // removed self
+        navigationItem.title = "Sent Memes"     // removed self
+        collectionView?.backgroundColor = UIColor.whiteColor()      // removed self
     }
     
     override func viewDidLoad() {

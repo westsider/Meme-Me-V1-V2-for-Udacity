@@ -1,5 +1,5 @@
 //
-//  SentMemesUICollectionViewCell.swift
+//  TableViewCell
 //  Meme Me Version 1
 //
 //  Created by Warren Hansen on 9/7/16.
